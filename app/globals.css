@@ -2,32 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  /* Default text color for light mode */
+  body {
+    @apply text-primary-light; /* Apply primary light text color by default */
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  /* Default text color for dark mode */
+  .dark body {
+    @apply text-primary-dark; /* Apply primary dark text color by default */
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  svg text {
+    @apply text-primary-light;
+  }
+
+  .dark svg text {
+    @apply text-primary-light;
   }
 }
