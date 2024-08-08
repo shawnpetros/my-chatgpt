@@ -11,7 +11,7 @@ export default function Chat({ scroll }: { scroll: () => void }) {
 
   useEffect(() => {
     scroll();
-  }, [messages]);
+  }, [messages, scroll]);
 
   const renderResponse = () => {
     return (
